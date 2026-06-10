@@ -2,7 +2,7 @@ export type Lang = 'zh' | 'en';
 
 export const I18N: Record<string, Record<Lang, string>> = {
   'app.tagline':       { zh: '桌面的住人', en: 'Desktop dweller' },
-  'app.subtitle':      { zh: 'OCWORLD · v0.4 · Signal', en: 'OCWORLD · v0.4 · Signal' },
+  'app.subtitle':      { zh: 'ZEALWISH · v0.4 · Signal', en: 'ZEALWISH · v0.4 · Signal' },
 
   'nav.home':          { zh: '广场', en: 'Plaza' },
   'nav.chat':          { zh: '对话', en: 'Talk' },

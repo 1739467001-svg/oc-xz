@@ -54,7 +54,7 @@ export default function GlassShell({ children }: GlassShellProps) {
             fontSize: 10.5, color: 'var(--ink-muted)',
             letterSpacing: '0.22em', pointerEvents: 'none', fontWeight: 500,
           }}>
-            OCWORLD
+            ZEALWISH
           </div>
         </div>
         <div style={{ flex: 1, display: 'flex', overflow: 'hidden', position: 'relative' }}>

@@ -16,13 +16,13 @@ const LangContext = createContext<LangContextValue>({
 
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
-    const saved = localStorage.getItem('ocworld.lang');
+    const saved = localStorage.getItem('zealwish.lang');
     return saved === 'zh' ? 'zh' : 'en';
   });
 
   const setLang = useCallback((v: Lang) => {
     setLangState(v);
-    localStorage.setItem('ocworld.lang', v);
+    localStorage.setItem('zealwish.lang', v);
   }, []);
 
   const t = useCallback((key: string) => translate(key, lang), [lang]);

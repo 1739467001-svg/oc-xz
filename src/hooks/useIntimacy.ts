@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 
 export function useIntimacy() {
   const [value, setValue] = useState(() => {
-    const saved = localStorage.getItem('ocworld.intimacy');
+    const saved = localStorage.getItem('zealwish.intimacy');
     return saved ? parseInt(saved, 10) : 32;
   });
   const [day] = useState(27);
@@ -10,7 +10,7 @@ export function useIntimacy() {
   const bump = useCallback((amount: number) => {
     setValue(v => {
       const next = Math.min(100, v + amount);
-      localStorage.setItem('ocworld.intimacy', String(next));
+      localStorage.setItem('zealwish.intimacy', String(next));
       return next;
     });
   }, []);

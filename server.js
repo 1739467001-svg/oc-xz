@@ -327,9 +327,9 @@ async function fetchWithRetry(url, options, { maxRetries = 2, baseDelay = 1000, 
 
 const PORT = process.env.API_PORT || 7291;
 app.listen(PORT, () => {
-  console.log(`[ocworld-api] running on http://localhost:${PORT}`);
-  console.log(`[ocworld-api] CHAT:      ${CHAT_API_KEY ? 'configured ✓' : 'NOT configured ✗'} (${CHAT_MODEL})`);
-  console.log(`[ocworld-api] TTS:       ${TTS_API_KEY ? 'configured ✓' : 'NOT configured ✗'} (${TTS_MODEL})`);
-  console.log(`[ocworld-api] IMAGE_GEN: ${IMAGE_API_KEY ? 'configured ✓' : 'NOT configured ✗'}`);
-  console.log(`[ocworld-api] VISION:    ${VISION_API_KEY ? 'configured ✓' : 'NOT configured ✗'}`);
+  console.log(`[zealwish-api] running on http://localhost:${PORT}`);
+  console.log(`[zealwish-api] CHAT:      ${CHAT_API_KEY ? 'configured ✓' : 'NOT configured ✗'} (${CHAT_MODEL})`);
+  console.log(`[zealwish-api] TTS:       ${TTS_API_KEY ? 'configured ✓' : 'NOT configured ✗'} (${TTS_MODEL})`);
+  console.log(`[zealwish-api] IMAGE_GEN: ${IMAGE_API_KEY ? 'configured ✓' : 'NOT configured ✗'}`);
+  console.log(`[zealwish-api] VISION:    ${VISION_API_KEY ? 'configured ✓' : 'NOT configured ✗'}`);
 });

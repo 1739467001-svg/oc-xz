@@ -29,24 +29,24 @@ export default function CreateOcView({ onCreated }: CreateOcViewProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [description, setDescription] = useState(() => {
-    return localStorage.getItem('ocworld.createOc.desc') || (lang === 'en' ? DEFAULT_DESCRIPTION_EN : DEFAULT_DESCRIPTION_ZH);
+    return localStorage.getItem('zealwish.createOc.desc') || (lang === 'en' ? DEFAULT_DESCRIPTION_EN : DEFAULT_DESCRIPTION_ZH);
   });
   const [selectedStyle, setSelectedStyle] = useState(() => {
-    return localStorage.getItem('ocworld.createOc.style') || 'pixel';
+    return localStorage.getItem('zealwish.createOc.style') || 'pixel';
   });
   const [isGenerating, setIsGenerating] = useState(false);
   const [previews, setPreviews] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('ocworld.createOc.previews');
+      const saved = localStorage.getItem('zealwish.createOc.previews');
       return saved ? JSON.parse(saved) : [];
     } catch { return []; }
   });
   const [selectedIdx, setSelectedIdx] = useState(() => {
-    return Number(localStorage.getItem('ocworld.createOc.selectedIdx')) || 0;
+    return Number(localStorage.getItem('zealwish.createOc.selectedIdx')) || 0;
   });
   const [error, setError] = useState('');
   const [confirmed, setConfirmed] = useState(() => {
-    return localStorage.getItem('ocworld.createOc.confirmed') === '1';
+    return localStorage.getItem('zealwish.createOc.confirmed') === '1';
   });
 
   const [uploadedPhoto, setUploadedPhoto] = useState<string | null>(null);
@@ -105,10 +105,10 @@ export default function CreateOcView({ onCreated }: CreateOcViewProps) {
     setError('');
     setConfirmed(false);
     setPreviews([]);
-    localStorage.removeItem('ocworld.createOc.previews');
-    localStorage.removeItem('ocworld.createOc.confirmed');
-    localStorage.setItem('ocworld.createOc.desc', description);
-    localStorage.setItem('ocworld.createOc.style', selectedStyle);
+    localStorage.removeItem('zealwish.createOc.previews');
+    localStorage.removeItem('zealwish.createOc.confirmed');
+    localStorage.setItem('zealwish.createOc.desc', description);
+    localStorage.setItem('zealwish.createOc.style', selectedStyle);
     try {
       let finalKeywords = keywords;
       if (analyzePromiseRef.current) {
@@ -126,8 +126,8 @@ export default function CreateOcView({ onCreated }: CreateOcViewProps) {
       if (urls.length === 0) throw new Error(t('createOc.error'));
       setPreviews(urls);
       setSelectedIdx(0);
-      localStorage.setItem('ocworld.createOc.previews', JSON.stringify(urls));
-      localStorage.setItem('ocworld.createOc.selectedIdx', '0');
+      localStorage.setItem('zealwish.createOc.previews', JSON.stringify(urls));
+      localStorage.setItem('zealwish.createOc.selectedIdx', '0');
     } catch (err: any) {
       setError(err.message || t('createOc.error'));
     } finally {
@@ -138,13 +138,13 @@ export default function CreateOcView({ onCreated }: CreateOcViewProps) {
   const handleConfirm = async () => {
     if (!selectedPreview) return;
     setConfirmed(true);
-    localStorage.setItem('ocworld.avatar', selectedPreview);
-    localStorage.setItem('ocworld.avatarDesc', description);
-    localStorage.setItem('ocworld.createOc.confirmed', '1');
+    localStorage.setItem('zealwish.avatar', selectedPreview);
+    localStorage.setItem('zealwish.avatarDesc', description);
+    localStorage.setItem('zealwish.createOc.confirmed', '1');
     onCreated?.(selectedPreview, description);
     try {
       const gender = await api.detectGender(description);
-      localStorage.setItem('ocworld.ocGender', gender);
+      localStorage.setItem('zealwish.ocGender', gender);
     } catch {}
   };
 
@@ -343,7 +343,7 @@ export default function CreateOcView({ onCreated }: CreateOcViewProps) {
                   {previews.map((src, i) => (
                     <div
                       key={i}
-                      onClick={() => { setSelectedIdx(i); setConfirmed(false); localStorage.setItem('ocworld.createOc.selectedIdx', String(i)); localStorage.removeItem('ocworld.createOc.confirmed'); }}
+                      onClick={() => { setSelectedIdx(i); setConfirmed(false); localStorage.setItem('zealwish.createOc.selectedIdx', String(i)); localStorage.removeItem('zealwish.createOc.confirmed'); }}
                       style={{
                         position: 'relative', borderRadius: 14, overflow: 'hidden',
                         border: `2px solid ${selectedIdx === i ? 'var(--accent)' : 'var(--line)'}`,

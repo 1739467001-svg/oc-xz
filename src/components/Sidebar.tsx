@@ -134,7 +134,7 @@ export default function Sidebar({ active, setActive, collapsed, setCollapsed, on
             <OCMark scale={0.45} animated={false} />
           )}
           <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
-            <span className="grotesk" style={{ fontSize: 13.5, color: 'var(--ink)', letterSpacing: '0.04em', fontWeight: 700 }}>OCWORLD</span>
+            <span className="grotesk" style={{ fontSize: 13.5, color: 'var(--ink)', letterSpacing: '0.04em', fontWeight: 700 }}>ZEALWISH</span>
             <span className="mono" style={{ fontSize: 9, color: 'var(--ink-faint)', letterSpacing: '0.18em', marginTop: 1 }}>v0.4 · SIGNAL</span>
           </div>
         </div>

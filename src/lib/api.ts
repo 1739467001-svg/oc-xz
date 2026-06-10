@@ -1,5 +1,5 @@
 /**
- * OCWORLD Web API Service
+ * ZEALWISH Web API Service
  * Replaces Electron IPC with HTTP API calls for server deployment.
  * All endpoints are configurable via environment variables.
  */
@@ -97,7 +97,7 @@ export const api = {
 
   /** Text-to-speech — streaming sentence-by-sentence playback */
   async speak(text: string): Promise<void> {
-    const gender = localStorage.getItem('ocworld.ocGender') || 'female';
+    const gender = localStorage.getItem('zealwish.ocGender') || 'female';
     const sentences = splitSentences(text);
     if (sentences.length === 0) return;
 
